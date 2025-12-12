@@ -1,5 +1,5 @@
-select 
-* 
-from {{ source('demo', 'BIKE') }}
+--select 
+--* 
+--from {{ source('demo', 'BIKE') }}
 
-LIMIT 10
+--LIMIT 10;
