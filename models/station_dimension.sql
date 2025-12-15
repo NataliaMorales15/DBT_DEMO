@@ -1,10 +1,9 @@
 WITH BIKE as (
     select 
-    from {{source('demo','bike')}}
-    where RIDE_ID !='ride_id'
-    limit 10
+    *
+    from {{ source('demo','BIKE')}}
+    limit 10 
 )
-
 select 
 *
 from BIKE;
