@@ -9,7 +9,6 @@ WITH BIKE as (
 
     from {{ source('demo','BIKE')}}
     where RIDE_ID !='ride_id'
-    limit 10
 )
 select 
 *
