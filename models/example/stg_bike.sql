@@ -1,18 +1,21 @@
 WITH BIKE AS (
     SELECT 
     RIDE_ID,
-    STARTED_AT,
-    ENDED_AT,
-    START_STATION_NAME,
+    REPLACE(STARTED_AT,'"','') AS STARTED_AT,
+    REPLACE(ENDED_AT,'"','') AS ENDED_AT,
+    REPLACE(START_STATION_NAME,'"','') AS START_STATION_NAME,
     START_STATIO_ID,
-    END_STATION_NAME,
+    REPLACE(END_STATION_NAME,'"','') AS END_STATION_NAME,
     END_STATION_ID,
     START_LAT,
     START_LNG,
     END_LAT,
     END_LNG,
-    MEMBER_CSUAL
+    REPLACE(MEMBER_CSUAL,'"','') AS MEMBER_CSUAL
+
     FROM {{ source('demo', 'BIKE') }}
+
+    where RIDE_ID not in ('"bikeid"', '""bikeid""') and STARTED_AT not in ('"starttime"', 'starttime', '""starttime""')
 )
 SELECT 
 *
